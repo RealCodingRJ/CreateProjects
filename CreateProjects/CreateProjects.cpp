@@ -13,6 +13,11 @@ struct PickedCommand {
 	std::string commandRoute;
 };
 
+struct UsersQuestions {
+
+	std::string questions;
+};
+
 struct PickedNodeCommand {
 
 	std::string commandProject;
@@ -49,6 +54,11 @@ struct ProjectName {
 	std::string name;
 };
 
+struct cdProdRoute {
+	
+	std::string route;
+};
+
 int main() {
 
 	PickedCommand route;
@@ -57,6 +67,8 @@ int main() {
 	TypeProd type;
 	InitalProd prod;
 	ProjectName name;
+	cdProdRoute prodRoute;
+	UsersQuestions question;
 
 	createWindowCommand(route.commandRoute);
 
@@ -110,6 +122,26 @@ int main() {
 
 				createWindowCommand("npx create vite" + name.name);
 
+
+				printMessageScreen(1, "Want to Add to Github");
+
+				std::cin >> prodRoute.route;
+
+				if (prodRoute.route == "Yes") {
+
+
+					printMessageScreen(1, "Want to Add to Github");
+
+					printMessageScreen(1, "Want to Complete All: ");
+					std::cin >> question.questions;
+
+					if (question.questions == "Yes") {
+
+						createWindowCommand("git add .");
+					}
+
+				}
+
 			}
 
 			else if (prod.prod == "React") {
@@ -120,9 +152,31 @@ int main() {
 
 				createWindowCommand("npx nano-react-app  " + name.name);
 
+
+				printMessageScreen(1, "Want to Add to Github");
+
+				std::cin >> prodRoute.route;
+
+				if (prodRoute.route == "Yes") {
+
+
+					printMessageScreen(1, "Want to Add to Github");
+
+					printMessageScreen(1, "Want to Complete All: ");
+					std::cin >> question.questions;
+
+					if (question.questions == "Yes") {
+
+						createWindowCommand("git add .");
+					}
+
+				}
+
 			}
 
 			else if (prod.prod == "Next") {
+
+				
 
 				printMessageScreen(1, "Name the Project: ");
 
@@ -130,7 +184,30 @@ int main() {
 
 				createWindowCommand("npx create-next-app  " + name.name);
 
+
+				printMessageScreen(1, "Want to Add to Github");
+
+				std::cin >> prodRoute.route;
+
+				if (prodRoute.route == "Yes") {
+
+
+					printMessageScreen(1, "Want to Add to Github");
+
+					printMessageScreen(1, "Want to Complete All: ");
+					std::cin >> question.questions;
+
+					if (question.questions == "Yes") {
+
+						createWindowCommand("git add .");
+					}
+
+				}
+				
+
 			}
+
+			
 
 		}
 		
