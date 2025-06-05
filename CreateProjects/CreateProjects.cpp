@@ -1,5 +1,6 @@
 #include <iostream>
 #include <Windows.h>
+#include "BackendLanguagesLIBS.hpp"
 
 void createWindowCommand(std::string commandProject);
 
@@ -134,7 +135,9 @@ int main() {
 
 			std::cin >> prod.prod;
 
-			if (prod.prod == "Vue") {
+	
+
+			if (prod.prod == VUE) {
 
 				printMessageScreen(1, "Name the Project: ");
 				std::cin >> name.name;
@@ -171,7 +174,7 @@ int main() {
 
 			}
 
-			else if (prod.prod == "React") {
+			else if (prod.prod == REACT) {
 
 				printMessageScreen(1, "Name the Project: ");
 
