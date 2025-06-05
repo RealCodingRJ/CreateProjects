@@ -13,6 +13,11 @@ struct PickedCommand {
 	std::string commandRoute;
 };
 
+struct CommittedRouteProd {
+	
+	std::string commitedProd;
+};
+
 struct UsersQuestions {
 
 	std::string questions;
@@ -44,6 +49,11 @@ struct InitProject {
 	std::string projectCreate;
 };
 
+struct CommittedMessage {
+	
+	std::string message;
+};
+
 struct TypeProd {
 
 	std::string typeProject;
@@ -69,6 +79,8 @@ int main() {
 	ProjectName name;
 	cdProdRoute prodRoute;
 	UsersQuestions question;
+	CommittedRouteProd committed;
+	CommittedMessage message;
 
 	createWindowCommand(route.commandRoute);
 
@@ -170,6 +182,16 @@ int main() {
 						createWindowCommand("git add .");
 					}
 
+
+					printMessageScreen(1, "Want to Commit to Repo");
+
+					std::cin >> committed.commitedProd;
+
+					if (committed.commitedProd == "Yes") {
+
+						std::cin >> message.message;
+						createWindowCommand("git commit -m " + message.message);
+					}
 				}
 
 			}
