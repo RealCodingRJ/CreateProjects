@@ -69,6 +69,11 @@ struct cdProdRoute {
 	std::string route;
 };
 
+struct NewBranchCommand {
+	
+	std::string newName;
+};
+
 int main() {
 
 	PickedCommand route;
@@ -81,6 +86,8 @@ int main() {
 	UsersQuestions question;
 	CommittedRouteProd committed;
 	CommittedMessage message;
+	NewBranchCommand branchName;
+
 
 	createWindowCommand(route.commandRoute);
 
@@ -142,14 +149,22 @@ int main() {
 				if (prodRoute.route == "Yes") {
 
 
-					printMessageScreen(1, "Want to Add to Github");
-
 					printMessageScreen(1, "Want to Complete All: ");
 					std::cin >> question.questions;
 
 					if (question.questions == "Yes") {
 
 						createWindowCommand("git add .");
+					}
+
+					printMessageScreen(1, "Want to Create a new Branch for Repo");
+
+					std::cin >> branchName.newName;
+
+					if (branchName.newName == "Yes") {
+
+						std::cin >> branchName.newName;
+						createWindowCommand("git checkout -b " + branchName.newName);
 					}
 
 				}
@@ -171,9 +186,6 @@ int main() {
 
 				if (prodRoute.route == "Yes") {
 
-
-					printMessageScreen(1, "Want to Add to Github");
-
 					printMessageScreen(1, "Want to Complete All: ");
 					std::cin >> question.questions;
 
@@ -192,6 +204,19 @@ int main() {
 						std::cin >> message.message;
 						createWindowCommand("git commit -m " + message.message);
 					}
+
+				
+					printMessageScreen(1, "Want to Create a new Branch for Repo");
+
+					std::cin >> branchName.newName;
+
+					if (branchName.newName == "Yes") {
+
+						std::cin >> branchName.newName;
+						createWindowCommand("git checkout -b " + branchName.newName);
+					}
+
+
 				}
 
 			}
@@ -214,8 +239,6 @@ int main() {
 				if (prodRoute.route == "Yes") {
 
 
-					printMessageScreen(1, "Want to Add to Github");
-
 					printMessageScreen(1, "Want to Complete All: ");
 					std::cin >> question.questions;
 
@@ -223,6 +246,17 @@ int main() {
 
 						createWindowCommand("git add .");
 					}
+
+					printMessageScreen(1, "Want to Create a new Branch for Repo");
+
+					std::cin >> branchName.newName;
+
+					if (branchName.newName == "Yes") {
+
+						std::cin >> branchName.newName;
+						createWindowCommand("git checkout -b " + branchName.newName);
+					}
+
 
 				}
 				
