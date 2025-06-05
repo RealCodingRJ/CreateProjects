@@ -1,0 +1,141 @@
+#include <iostream>
+#include <Windows.h>
+
+void createWindowCommand(std::string commandProject);
+
+void createWindowCommand(std::string commandProject) {
+
+	ShellExecuteA(nullptr, "open", commandProject.c_str(), nullptr, nullptr, SW_SHOWDEFAULT);
+}
+
+struct PickedCommand {
+
+	std::string commandRoute;
+};
+
+struct PickedNodeCommand {
+
+	std::string commandProject;
+};
+
+void createGITPushedCommand(std::string commandGit) {
+
+	createWindowCommand(commandGit.c_str());
+}
+
+static void printMessageScreen(int index, std::string commandPrinted) {
+
+	std::cout << index << commandPrinted << std::endl;
+
+}
+
+struct InitalProd {
+	
+	std::string prod;
+};
+
+struct InitProject {
+	
+	std::string projectCreate;
+};
+
+struct TypeProd {
+
+	std::string typeProject;
+};
+
+struct ProjectName {
+	
+	std::string name;
+};
+
+int main() {
+
+	PickedCommand route;
+	PickedNodeCommand command;
+	InitProject project;
+	TypeProd type;
+	InitalProd prod;
+	ProjectName name;
+
+	createWindowCommand(route.commandRoute);
+
+	if (route.commandRoute == "install") {
+		
+		printMessageScreen(1, "Please Enter Package to Install: ");
+
+		std::cin >> command.commandProject;
+
+		createWindowCommand("npm install -g " + command.commandProject);
+
+
+	}
+
+	if (route.commandRoute == "Project") {
+
+		printMessageScreen(1, "npm or npx: ");
+		
+		std::cin >> project.projectCreate;
+
+		if (project.projectCreate == "npm") {
+
+			createWindowCommand("npm create " + command.commandProject);
+
+		}
+
+		else if (project.projectCreate == "npx") {
+
+			createWindowCommand("npx create" + command.commandProject);
+
+		}
+
+		if (project.projectCreate == "Create") {
+
+			for (int i = 0; i < 1; i++) {
+
+				printMessageScreen(i, "VueJS");
+				printMessageScreen(i, "ReactJS");
+				printMessageScreen(i, "NextJS");
+
+			}
+
+			printMessageScreen(0, "Pick One");
+
+			std::cin >> prod.prod;
+
+			if (prod.prod == "Vue") {
+
+				printMessageScreen(1, "Name the Project: ");
+				std::cin >> name.name;
+
+				createWindowCommand("npx create vite" + name.name);
+
+			}
+
+			else if (prod.prod == "React") {
+
+				printMessageScreen(1, "Name the Project: ");
+
+				std::cin >> name.name;
+
+				createWindowCommand("npx nano-react-app  " + name.name);
+
+			}
+
+			else if (prod.prod == "Next") {
+
+				printMessageScreen(1, "Name the Project: ");
+
+				std::cin >> name.name;
+
+				createWindowCommand("npx create-next-app  " + name.name);
+
+			}
+
+		}
+		
+
+	}
+
+
+}
